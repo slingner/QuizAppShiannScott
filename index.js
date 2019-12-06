@@ -61,20 +61,20 @@ const STORE = {
 
 function renderHomePage() {
   const html = `
-    <h1>Extreme Food Trivia</h1>
     <h2>Take a break from programming and dive into the weird world of food!</h2>
     <div>
       <button id="start-quiz">Start Quiz</button>
     </div>
   `;
 
-  $('header').html(html); //accessing the header from index.html and inputing the html variable we just created
+  $('main').html(html); //accessing the header from index.html and inputing the html variable we just created
 }
 
 
 function questionTemplate(question) {
   return `
-    <h1>${question.question}</h1>
+    <h2>${question.question}</h2>
+    <form action ="answerSubmit" method ="get">
     <fieldset>
       <div class="questionList">
         <input class='answer' type="radio" name='answer' value='0' required"/> 
@@ -87,8 +87,9 @@ function questionTemplate(question) {
         <label for="y">${question.answers[3]}</label><br>
       </div>
     </fieldset>
-    <button id="submit">Submit</button>
-    <button id="next-question">Next Question</button>
+    </form>
+    <button id="submit" type = "submit">Submit</button>
+    <button id="next-question" type = "button">Next Question</button>
   `;
 }
 
@@ -154,20 +155,24 @@ function handleStartQuiz() {
   $('#start-quiz').click(function() {
     renderQuestion();
 
-    $('header').html(''); //this is hiding the homepage screen
+    // $('header').html(''); //this is hiding the homepage screen
   });
 }
 
 function handleNextQuestion() {
   $(document).on('click', '#next-question', function() {
-    renderQuestion(); // makes the next question html show up
+    if(STORE.questionNumber < STORE.questions.length) {
+      renderQuestion();
+    } else {
+      renderFinalPage();
+    }
   });
 }
 
-// function handleFinalPage(question) {
-//   $(document).on('click', '#next-question', function() {
-//     if (question.length === )
-// }
+
+function renderFinalPage(question) {
+  console.log('renderFinalPage');
+}
 
 
 
