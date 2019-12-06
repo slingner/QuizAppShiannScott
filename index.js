@@ -75,7 +75,7 @@ function renderHomePage() {
 function questionTemplate(question) {
   return `
     <legend>${question.question}</legend>
-    <form label = "answer panel">
+    <form>
       <fieldset>
         <div class="questionList">
         <input aria-label="Answer1" type="radio" name='answer' value='${question.answers[0]}' required"/> 
@@ -88,7 +88,7 @@ function questionTemplate(question) {
           <label for="y">${question.answers[3]}</label><br>
         </div>
       </fieldset>
-      <button id="submit" type = "submit">Submit</button>
+      <button id="submit" type = "button">Submit</button>
     </form>
     <div id="Score">Score: ${STORE.score}</div>
     <div id="Question Number">Question Number: ${STORE.questionNumberScore} of 5</div>
