@@ -73,7 +73,7 @@ function renderHomePage() {
 
 function questionTemplate(question) {
   return `
-    <h2>${question.question}</h2>
+    <legend>${question.question}</legend>
     <form action ="answerSubmit" method ="get">
     <fieldset>
       <div class="questionList">
@@ -102,7 +102,7 @@ function finalpageTemplate() {
         <h3>Number Incorrect: 2</h3>
       </form>
     </fieldset>
-    <button>Start a New Game</button>
+    <button id="reset" type= "button">Start a New Game</button>
   `;
 }
 
@@ -163,12 +163,9 @@ function renderQuestion() {
 }
 
 //on the button id #start-quiz click, return renderQuestion() 
-//renderQuestion()
 function handleStartQuiz() {
   $('#start-quiz').click(function() {
     renderQuestion();
-
-    // $('header').html(''); //this is hiding the homepage screen
   });
 }
 
@@ -185,6 +182,12 @@ function handleNextQuestion() {
 
 function renderFinalPage() {
   $('main').html(finalpageTemplate);
+}
+
+function handleResetButton() {
+  $(document).on('click', '#reset', function() {
+    renderHomePage();
+  });
 }
 
 
@@ -210,6 +213,7 @@ function quizHandler() {
   handleStartQuiz();
   //handleSubmitButton();
   handleNextQuestion();
+  handleResetButton();
 }
 
 $(quizHandler);
