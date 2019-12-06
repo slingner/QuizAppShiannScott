@@ -93,6 +93,19 @@ function questionTemplate(question) {
   `;
 }
 
+function finalpageTemplate() {
+  return `
+    <fieldset>
+      <form class="finalScore">
+        <h2>Final Score:</h2>
+        <h3>Number Correct: 4</h3>
+        <h3>Number Incorrect: 2</h3>
+      </form>
+    </fieldset>
+    <button>Start a New Game</button>
+  `;
+}
+
 // function statusTemplate() {
 //   return `
 //   <div class='status-container'>
@@ -170,8 +183,8 @@ function handleNextQuestion() {
 }
 
 
-function renderFinalPage(question) {
-  console.log('renderFinalPage');
+function renderFinalPage() {
+  $('main').html(finalpageTemplate);
 }
 
 
