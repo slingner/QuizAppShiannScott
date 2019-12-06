@@ -1,4 +1,4 @@
-// const parent = document.getElementsByClassName('parent')[0];
+
 'use strict';
 
 const STORE = {
@@ -68,7 +68,7 @@ function renderHomePage() {
     </div>
   `;
 
-  $('header').html(html);
+  $('header').html(html); //accessing the header from index.html and inputing the html variable we just created
 }
 
 
@@ -133,7 +133,7 @@ function questionTemplate(question) {
 
 function questionSelector(questions) {
   const questionNumber = questions.questionNumber; //current question number
-  const questionsArray = questions.questions; // all available questions
+  const questionsArray = questions.questions; // all available questions in STORE.questions
 
   const question = questionTemplate(questionsArray[questionNumber]); // retrieve current question
 
@@ -154,15 +154,22 @@ function handleStartQuiz() {
   $('#start-quiz').click(function() {
     renderQuestion();
 
-    $('header').html('');
+    $('header').html(''); //this is hiding the homepage screen
   });
 }
 
 function handleNextQuestion() {
   $(document).on('click', '#next-question', function() {
-    renderQuestion();
+    renderQuestion(); // makes the next question html show up
   });
 }
+
+// function handleFinalPage(question) {
+//   $(document).on('click', '#next-question', function() {
+//     if (question.length === )
+// }
+
+
 
 // function renderSubmit() {
  
@@ -179,10 +186,11 @@ function handleNextQuestion() {
 
 // function renderScoreScreen
 
-
+//herarchy of how the page loads
 function quizHandler() {
   renderHomePage();
   handleStartQuiz();
+  //handleSubmitButton();
   handleNextQuestion();
 }
 
