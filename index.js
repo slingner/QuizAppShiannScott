@@ -1,4 +1,3 @@
-
 'use strict';
 
 const STORE = {
@@ -88,7 +87,7 @@ function questionTemplate(question) {
           <label for="y">${question.answers[3]}</label><br>
         </div>
       </fieldset>
-      <button id="submit" type = "submit">Submit</button>
+      <button id="submit" type = "button">Submit</button>
     </form>
     <div id="Score">Score: ${STORE.score}</div>
     <div id="Question Number">Question Number: ${STORE.questionNumberScore} of 5</div>
@@ -137,8 +136,8 @@ function handleStartQuiz() {
 
 function handleNextQuestion() {
   $('#main').on('click', '#next-question', function() {
+    STORE.questionNumber++;
     if(STORE.questionNumber < STORE.questions.length) {
-      STORE.questionNumber++;
       renderQuestion();
     } else {
       console.log(STORE);
