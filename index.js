@@ -74,33 +74,40 @@ function renderHomePage() {
 function questionTemplate(question) {
   return `
     <legend>${question.question}</legend>
-    <form action ="answerSubmit" method ="get">
-    <fieldset>
-      <div class="questionList">
-        <input class='answer' type="radio" name='answer' value='0' required"/> 
-        <label for="y">${question.answers[0]}</label><br>
-      <input class='answer' type="radio" name='answer' value='0' required/>
-        <label for="y">${question.answers[1]}</label><br>
-          <input class='answer' type="radio" name='answer' value='0' required/>
-        <label for="y">${question.answers[2]}</label><br>
-          <input class='answer' type="radio" name='answer' value='0' required/>
-        <label for="y">${question.answers[3]}</label><br>
-      </div>
-    </fieldset>
+    <form>
+      <fieldset>
+        <div class="questionList">
+          <input class='answer' type="radio" name='answer' value='0' required"/> 
+          <label for="y">${question.answers[0]}</label><br>
+        <input class='answer' type="radio" name='answer' value='0' required/>
+          <label for="y">${question.answers[1]}</label><br>
+            <input class='answer' type="radio" name='answer' value='0' required/>
+          <label for="y">${question.answers[2]}</label><br>
+            <input class='answer' type="radio" name='answer' value='0' required/>
+          <label for="y">${question.answers[3]}</label><br>
+        </div>
+      </fieldset>
+      <button id="submit" type = "submit">Submit</button>
+      <button id="next-question" type = "button">Next Question</button>
     </form>
-    <button id="submit" type = "submit">Submit</button>
-    <button id="next-question" type = "button">Next Question</button>
   `;
 }
+
+function correctFeedbackTemplate() {
+  //correct html
+}
+
+function incorrectFeedbackTemplate() {
+  //incorrect html
+}
+
 
 function finalpageTemplate() {
   return `
     <fieldset>
-      <form class="finalScore">
         <h2>Final Score:</h2>
         <h3>Number Correct: 4</h3>
         <h3>Number Incorrect: 2</h3>
-      </form>
     </fieldset>
     <button id="reset" type= "button">Start a New Game</button>
   `;
@@ -162,45 +169,67 @@ function renderQuestion() {
   //so every click will trigger the html of the next question and also set the new question number for the next click
 }
 
+function restartQuiz() {
+  STORE.questionNumber = 0;
+  STORE.score = 0;
+}
+
 //on the button id #start-quiz click, return renderQuestion() 
 function handleStartQuiz() {
-  $('#start-quiz').click(function() {
+  $('#main').on('click', '#start-quiz', function() {
+    console.log(STORE);
+    restartQuiz();
     renderQuestion();
   });
 }
 
 function handleNextQuestion() {
-  $(document).on('click', '#next-question', function() {
+  $('#main').on('click', '#next-question', function() {
     if(STORE.questionNumber < STORE.questions.length) {
       renderQuestion();
     } else {
+      console.log(STORE);
       renderFinalPage();
     }
   });
 }
-
 
 function renderFinalPage() {
   $('main').html(finalpageTemplate);
 }
 
 function handleResetButton() {
-  $(document).on('click', '#reset', function() {
+  $('#main').on('click', '#reset', function() {
     renderHomePage();
   });
 }
 
 
+function handleSubmit() {
+  $('#main').on('submit', 'form', function(event) {
+    event.preventDefault();
+  });
+}
 
-// function renderSubmit() {
- 
-// }
+function handleSubmitAnswer(){
+  $('#main').on('click', '#submit', function(){
+    console.log('clicked');
+    checkAnswer();
+  });
+}
 
-// function handleSubmit() {
-//   $(document).on('click', '#submit', function() {
-//     renderSubmit();
-//   });
-// }
+function checkAnswer() {
+  let selectedOption = $('input[type=radio]:checked').val();
+  
+  if(selectedOption === STORE.correctAnswer) {
+    console.log('corect');
+  }
+  else{
+    console.log('incorrect');
+  }
+}
+
+
  
 
 // function handleFinishQuiz
@@ -214,6 +243,8 @@ function quizHandler() {
   //handleSubmitButton();
   handleNextQuestion();
   handleResetButton();
+  handleSubmit();
+  handleSubmitAnswer(); 
 }
 
 $(quizHandler);
