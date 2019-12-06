@@ -6,12 +6,12 @@ const STORE = {
     {
       question: 'What is the hottest Pepper in the world?',
       answers: [
-        'Dragon’s Breath',
+        'Dragons Breath',
         'Jalapeno',
         'Ghost Pepper',
         'Shishito'
       ],
-      correctAnswer: 'Dragon’s Breath'
+      correctAnswer: 'Dragons Breath'
     },
     {
       question: 'What is the most poisonous mushroom?',
@@ -55,7 +55,8 @@ const STORE = {
     },
   ],
   questionNumber: 0,
-  score: 0
+  score: 0,
+  questionNumberScore: 1,
 };
 
 
@@ -74,83 +75,35 @@ function renderHomePage() {
 function questionTemplate(question) {
   return `
     <legend>${question.question}</legend>
-    <form>
+    <form label = "answer panel">
       <fieldset>
         <div class="questionList">
-          <input class='answer' type="radio" name='answer' value='0' required"/> 
+        <input aria-label="Answer1" type="radio" name='answer' value='${question.answers[0]}' required"/> 
           <label for="y">${question.answers[0]}</label><br>
-        <input class='answer' type="radio" name='answer' value='0' required/>
+        <input aria-label="Answer2" type="radio" name='answer' value='${question.answers[1]}' required/>
           <label for="y">${question.answers[1]}</label><br>
-            <input class='answer' type="radio" name='answer' value='0' required/>
+        <input aria-label="Answer3" type="radio" name='answer' value='${question.answers[2]}' required/>
           <label for="y">${question.answers[2]}</label><br>
-            <input class='answer' type="radio" name='answer' value='0' required/>
+        <input aria-label="Answer4" type="radio" name='answer' value='${question.answers[3]}' required/>
           <label for="y">${question.answers[3]}</label><br>
         </div>
       </fieldset>
       <button id="submit" type = "submit">Submit</button>
-      <button id="next-question" type = "button">Next Question</button>
     </form>
+    <div id="Score">Score: ${STORE.score}</div>
+    <div id="Question Number">Question Number: ${STORE.questionNumberScore} of 5</div>
   `;
-}
-
-function correctFeedbackTemplate() {
-  //correct html
-}
-
-function incorrectFeedbackTemplate() {
-  //incorrect html
 }
 
 
 function finalpageTemplate() {
   return `
     <fieldset>
-        <h2>Final Score:</h2>
-        <h3>Number Correct: 4</h3>
-        <h3>Number Incorrect: 2</h3>
+        <h2>Final Score: ${STORE.score}</h2>
     </fieldset>
     <button id="reset" type= "button">Start a New Game</button>
   `;
 }
-
-// function statusTemplate() {
-//   return `
-//   <div class='status-container'>
-//     <div class = 'question-number'>
-//       <h3>Question 1 of 5</h3>
-//     </div class = 'question-number'>
-//     <div class = 'score-number'>
-//       <h5>Score: 0</h5>
-//       <h5>Number Correct: 0</h5>
-//       <h5>Number Incorrect: 0</h5>
-//     </div class = 'score-number'>
-//   </div>
-//   `;
-// }
-
-// function questionStatus(questions) {
-//   const questionNumber = questions.questionNumber;
-//   $('.question-number').empty();
-//   $('.question-number').append(
-//     `<p class= 'question-status'>Question ${questionNumber + 1} out of 10</p>`
-//   );
-// }
-
-// function scoreStatus(questions) {
-//   const scoreNumber = questions.score;
-//   $('.score-number').empty();
-//   $('.score-number').append(
-//     `<p>Score ${totalScore} out of 10</p>`
-//   );
-//   console.log('scoreStatus ran');
-//   console.log(totalScore);
-// };
-
-// function answersTemplate(question) {
-//   return `
-//     <h1>${question.answers}</h1>
-//   `;
-// }
 
 function questionSelector(questions) {
   const questionNumber = questions.questionNumber; //current question number
@@ -165,13 +118,12 @@ function questionSelector(questions) {
 function renderQuestion() {
   const questionString = questionSelector(STORE); //this makes the variable questionString 
   $('main').html(questionString); //put the html from const questionString into the main of index.html
-  STORE.questionNumber += 1; //this iterates through the question numbers
-  //so every click will trigger the html of the next question and also set the new question number for the next click
 }
 
 function restartQuiz() {
   STORE.questionNumber = 0;
   STORE.score = 0;
+  STORE.questionNumberScore = 1;
 }
 
 //on the button id #start-quiz click, return renderQuestion() 
@@ -186,6 +138,7 @@ function handleStartQuiz() {
 function handleNextQuestion() {
   $('#main').on('click', '#next-question', function() {
     if(STORE.questionNumber < STORE.questions.length) {
+      STORE.questionNumber++;
       renderQuestion();
     } else {
       console.log(STORE);
@@ -218,25 +171,48 @@ function handleSubmitAnswer(){
   });
 }
 
+function correctFeedback() {
+  $('#main').html(`
+  <div role="correct feedback" aria-live="polite">
+    <h3>Correct</h3>
+    <button id="next-question">
+    Next
+    </button>
+  </div>
+    `);
+}
+
+function incorrectFeedback() {
+  $('#main').html(`
+  <div role="incorrect feedback" aria-live="polite">
+    <h3>Incorrect. The correct answer is ${STORE.questions[STORE.questionNumber].correctAnswer}</h3>
+    <button id="next-question">
+    Next
+    </button>
+  </div>
+    `);
+}
+
 function checkAnswer() {
-  let selectedOption = $('input[type=radio]:checked').val();
-  
-  if(selectedOption === STORE.correctAnswer) {
-    console.log('corect');
-  }
-  else{
+  let selectedOption = $('input[type=radio]:checked').val().trim();
+  console.log(STORE.questions[STORE.questionNumber].correctAnswer);
+  console.log(selectedOption); 
+  if (selectedOption === STORE.questions[STORE.questionNumber].correctAnswer) {
+    console.log('correct');
+    correctFeedback(); 
+    STORE.score++;
+    STORE.questionNumberScore++;
+    //call correct feedback
+    //generate nextQuestion button
+  } else {
     console.log('incorrect');
+    incorrectFeedback();
+    //call incorrect infeedback
+    //
   }
 }
 
-
- 
-
-// function handleFinishQuiz
-
-// function renderScoreScreen
-
-//herarchy of how the page loads
+//hierarchy of how the page loads
 function quizHandler() {
   renderHomePage();
   handleStartQuiz();
