@@ -74,7 +74,7 @@ function renderHomePage() {
 function questionTemplate(question) {
   return `
     <legend>${question.question}</legend>
-    <form label = "answer panel">
+    <form>
       <fieldset>
         <div class="questionList">
         <input aria-label="Answer1" type="radio" name='answer' value='${question.answers[0]}' required"/> 
