@@ -30,6 +30,40 @@ main {
   font-family: 'Solway', serif;
   color: red;
   height: 75px;
-  width: 50%;
+  width: 75%;
   margin: 0 auto;
+  max-width: 600px;
+}
+legend {
+  display: block;
+  text-align: center;
+  font-family: 'Solway', serif;
+}
+
+#start-quiz {
+  display: block;
+  margin: 0 auto;
+}
+
+#submit {
+  display: block;
+  margin: 0 auto;
+}
+
+#reset {
+  display: block;
+  margin: 0 auto;
+}
+fieldset {
+  margin: 20px;
+}
+
+@media (min-width: 750px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+
+  }
 }
