@@ -89,7 +89,7 @@ function questionTemplate(question) {
       </fieldset>
       <button id="submit" type = "button">Submit</button>
     </form>
-    <div id="Score">Score: ${STORE.score}</div>
+    <div id="Score">Score: ${STORE.score} out of 5!</div>
     <div id="Question Number">Question Number: ${STORE.questionNumberScore} of 5</div>
   `;
 }
@@ -173,7 +173,7 @@ function handleSubmitAnswer(){
 function correctFeedback() {
   $('#main').html(`
   <div role="correct feedback" aria-live="polite">
-    <h3>Correct</h3>
+    <h3>Correct!</h3>
     <button id="next-question">
     Next
     </button>
@@ -184,7 +184,7 @@ function correctFeedback() {
 function incorrectFeedback() {
   $('#main').html(`
   <div role="incorrect feedback" aria-live="polite">
-    <h3>Incorrect. The correct answer is ${STORE.questions[STORE.questionNumber].correctAnswer}</h3>
+    <h3>Incorrect! The correct answer is ${STORE.questions[STORE.questionNumber].correctAnswer}</h3>
     <button id="next-question">
     Next
     </button>
