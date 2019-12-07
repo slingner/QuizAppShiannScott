@@ -74,7 +74,7 @@ function renderHomePage() {
 function questionTemplate(question) {
   return `
     <legend>${question.question}</legend>
-    <form>
+    <form action="/action_page.php" method="get">
       <fieldset>
         <div class="questionList">
         <input aria-label="Answer1" type="radio" name='answer' value='${question.answers[0]}' required"/> 
@@ -90,7 +90,7 @@ function questionTemplate(question) {
       <button id="submit" type = "button">Submit</button>
     </form>
     <div id="Score">Score: ${STORE.score}</div>
-    <div id="Question Number">Question Number: ${STORE.questionNumberScore} of 5</div>
+    <div id="QuestionNumber">Question Number: ${STORE.questionNumberScore} of 5</div>
   `;
 }
 
