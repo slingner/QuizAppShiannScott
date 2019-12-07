@@ -18,20 +18,23 @@
       rgba(0, 0, 0, .4),
       rgba(0, 0, 0, .4)
     ),
-    url(https://images.pexels.com/photos/616404/pexels-photo-616404.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
+    url("https://images.pexels.com/photos/616404/pexels-photo-616404.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
     background-size: cover;
     height: 100vh;
   }
 
   h1 {
+    font-size: 45px;
     text-align: center;
     font-family: 'Shadows Into Light';
     color: white;
   }
-h2 {
-  text-align: center;
-  font-family: 'Julius Sans One', sans-serif;
-}
+  p {
+    font-family: 'Solway', serif;
+    font-size: 18px;
+    text-align: center;
+    padding-bottom: 22px;
+  }
 
 main {
   font-family: 'Solway', serif;
@@ -63,6 +66,8 @@ legend {
 #reset {
   display: block;
   margin: 0 auto;
+  border-radius: 25px;
+  padding: 7px;
 }
 fieldset {
   margin: 20px;
@@ -74,7 +79,7 @@ label {
 }
 
 #Score {
-  font-family: 'Julius Sans One', sans-serif;
+  font-family: 'Solway', serif;
   color: white;
   font-size: 14px;
   text-align: center;
@@ -82,7 +87,7 @@ label {
 }
 
 #QuestionNumber {
-  font-family: 'Julius Sans One', sans-serif;
+  font-family: 'Solway', serif;
   color: white;
   font-size: 14px;
   text-align: center;

@@ -61,7 +61,7 @@ const STORE = {
 
 function renderHomePage() {
   const html = `
-    <h2>Take a break from programming and dive into the weird world of food!</h2>
+    <p>Take a break from programming and dive into the weird world of food!</p>
     <div>
       <button id="start-quiz">Start Quiz</button>
     </div>
@@ -87,7 +87,7 @@ function questionTemplate(question) {
           <label for="y">${question.answers[3]}</label><br>
         </div>
       </fieldset>
-      <button id="submit" type = "button">Submit</button>
+      <button id="submit" type = "button" required>Submit</button>
     </form>
     <div id="Score">Score: ${STORE.score}</div>
     <div id="QuestionNumber">Question Number: ${STORE.questionNumberScore} of 5</div>
@@ -98,7 +98,7 @@ function questionTemplate(question) {
 function finalpageTemplate() {
   return `
     <fieldset>
-        <h2>Final Score: ${STORE.score}</h2>
+        <p>Final Score: ${STORE.score} out of 5.</p>
     </fieldset>
     <button id="reset" type= "button">Start a New Game</button>
   `;
@@ -192,6 +192,14 @@ function incorrectFeedback() {
     `);
 }
 
+function noFeedback() {
+  $('#main').html(`
+  <div role="no feedback" aria-live="polite">
+    <h3>Please put answer</h3>
+  </div>
+    `);
+}
+
 function checkAnswer() {
   let selectedOption = $('input[type=radio]:checked').val().trim();
   console.log(STORE.questions[STORE.questionNumber].correctAnswer);
@@ -216,7 +224,6 @@ function checkAnswer() {
 function quizHandler() {
   renderHomePage();
   handleStartQuiz();
-  //handleSubmitButton();
   handleNextQuestion();
   handleResetButton();
   handleSubmit();
