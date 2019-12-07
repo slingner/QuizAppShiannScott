@@ -89,7 +89,7 @@ function questionTemplate(question) {
       </fieldset>
       <button id="submit" type = "button">Submit</button>
     </form>
-    <div id="Score">Score: ${STORE.score} out of 5!</div>
+    <div id="Score">Score: ${STORE.score}</div>
     <div id="Question Number">Question Number: ${STORE.questionNumberScore} of 5</div>
   `;
 }
@@ -206,6 +206,7 @@ function checkAnswer() {
   } else {
     console.log('incorrect');
     incorrectFeedback();
+    STORE.questionNumberScore++;
     //call incorrect infeedback
     //
   }
