@@ -13,13 +13,14 @@
   }
 
   body {
-    background-color: orange;
+    background-color:	orange;
     font-family: 'Solway', serif;
   }
 
   h1 {
     text-align: center;
     font-family: 'Shadows Into Light', cursive;
+    color: #000060;
   }
 h2 {
   text-align: center;
@@ -28,7 +29,7 @@ h2 {
 
 main {
   font-family: 'Solway', serif;
-  color: red;
+  color: blue;
   height: 75px;
   width: 75%;
   margin: 0 auto;
