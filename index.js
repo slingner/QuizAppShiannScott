@@ -87,18 +87,20 @@ function questionTemplate(question) {
             <label for="answer">${question.answers[3]}</label><br>
         </div>
       </fieldset>
-      <input type = "submit" id = "button1">
+      <button type = "submit" id = "button1"> Check Your Answer </button>
     </form>
     <div id="Score">Score: ${STORE.score}</div>
     <div id="QuestionNumber">Question Number: ${STORE.questionNumberScore} of 5</div>
   `;
 }
-
+//maybe I had the html wrong.. because I switched back to button type again and it also
+//works.
 
 function finalpageTemplate() {
   return `
     <fieldset>
         <p>Final Score: ${STORE.score} out of 5.</p>
+        <p> 🌶️ 🍄 🍫 🐡 🍿 </p>
     </fieldset>
     <button id="reset" type= "button">Start a New Game</button>
   `;

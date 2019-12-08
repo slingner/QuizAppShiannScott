@@ -31,7 +31,7 @@
   }
   p {
     font-family: 'Solway', serif;
-    font-size: 18px;
+    font-size: 24px;
     text-align: center;
     padding-bottom: 22px;
   }
@@ -45,6 +45,7 @@ main {
   max-width: 600px;
 }
 legend {
+  font-size: 18px;
   display: block;
   text-align: center;
   font-family: 'Solway', serif;
@@ -94,7 +95,7 @@ label {
 #Score {
   font-family: 'Solway', serif;
   color: white;
-  font-size: 14px;
+  font-size: 16px;
   text-align: center;
   margin-bottom: 10px;
 }
@@ -102,7 +103,7 @@ label {
 #QuestionNumber {
   font-family: 'Solway', serif;
   color: white;
-  font-size: 14px;
+  font-size: 16px;
   text-align: center;
 }
 
