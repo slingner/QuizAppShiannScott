@@ -66,6 +66,13 @@ legend {
   padding: 7px;
 }
 
+#start-quiz:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+}
+
 #button1 {
   font-family: 'Solway', serif;
   display: block;
@@ -75,11 +82,25 @@ legend {
   padding: 7px;
 }
 
+#button1:hover {
+ cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+    transform: translateY(-0.1rem);
+    transition: transform 150ms; 
+}
+
 #reset {
   display: block;
   margin: 0 auto;
   border-radius: 25px;
   padding: 7px;
+}
+
+#reset:hover{
+  cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
 }
 
 #next-question {
@@ -88,6 +109,13 @@ legend {
   margin:0 auto;
   border-radius: 25px;
   padding: 7px;
+}
+
+#next-question:hover {
+  cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
 }
 
 #incorrectGif {
