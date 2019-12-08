@@ -176,8 +176,9 @@ function handleResetButton() {
 
 function correctFeedback() {
   $('#main').html(`
-  <div role="correct feedback" aria-live="polite">
-    <h3>Correct!</h3>
+  <div class = "feedback" role="correct feedback" aria-live="polite">
+    <h3>${STORE.questions[STORE.questionNumber].correctAnswer} is the correct answer!</h3>
+    <img src="https://media.giphy.com/media/26BRy3p4oVFc6UOXe/giphy.gif" id = "correctGif" alt="Correct Gif" style="width:200px;height:200px;">
     <button id="next-question">
     Next
     </button>
@@ -187,8 +188,9 @@ function correctFeedback() {
 
 function incorrectFeedback() {
   $('#main').html(`
-  <div role="incorrect feedback" aria-live="polite">
+  <div class = "feedback" role="incorrect feedback" aria-live="polite">
     <h3>Incorrect! The correct answer is ${STORE.questions[STORE.questionNumber].correctAnswer}.</h3>
+    <img src="https://media.giphy.com/media/l46C6poYXoMy5Sy8E/giphy.gif" id = "incorrectGif" alt="Incorrect Gif" style="width:200px;height:200px;">
     <button id="next-question">
     Next
     </button>

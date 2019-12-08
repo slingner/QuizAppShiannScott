@@ -39,6 +39,7 @@
   }
 
   h3 {
+    text-align: center;
     font-family: 'Solway', serif;
   }
 
@@ -84,8 +85,21 @@ legend {
 #next-question {
   font-family: 'Solway', serif;
   display: block;
+  margin:0 auto;
   border-radius: 25px;
   padding: 7px;
+}
+
+#incorrectGif {
+  display: block;
+  margin:0 auto;
+  padding-bottom: 15px;
+}
+
+#correctGif {
+  display: block;
+  margin:0 auto;
+  padding-bottom: 15px;
 }
 
 fieldset {
