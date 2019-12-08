@@ -74,20 +74,20 @@ function renderHomePage() {
 function questionTemplate(question) {
   return `
     <legend>${question.question}</legend>
-    <form action="/action_page.php" method="get">
+    <form class = "myForm">
       <fieldset>
         <div class="questionList">
-        <input aria-label="Answer1" type="radio" name='answer' value='${question.answers[0]}' required"/> 
-          <label for="y">${question.answers[0]}</label><br>
-        <input aria-label="Answer2" type="radio" name='answer' value='${question.answers[1]}' required/>
-          <label for="y">${question.answers[1]}</label><br>
-        <input aria-label="Answer3" type="radio" name='answer' value='${question.answers[2]}' required/>
-          <label for="y">${question.answers[2]}</label><br>
-        <input aria-label="Answer4" type="radio" name='answer' value='${question.answers[3]}' required/>
-          <label for="y">${question.answers[3]}</label><br>
+          <input aria-label="Answer1" class = 'input-field' type="radio" name='answer' value='${question.answers[0]}' required> 
+            <label for="answer">${question.answers[0]}</label><br>
+          <input aria-label="Answer2" class = 'input-field' type="radio" name='answer' value='${question.answers[1]}' required>
+            <label for="answer">${question.answers[1]}</label><br>
+          <input aria-label="Answer3" class = 'input-field' type="radio" name='answer' value='${question.answers[2]}' required>
+            <label for="answer">${question.answers[2]}</label><br>
+          <input aria-label="Answer4" class = 'input-field' type="radio" name='answer' value='${question.answers[3]}' required>
+            <label for="answer">${question.answers[3]}</label><br>
         </div>
       </fieldset>
-      <button id="submit" type = "button" required>Submit</button>
+      <input type = "submit" id = "button1">
     </form>
     <div id="Score">Score: ${STORE.score}</div>
     <div id="QuestionNumber">Question Number: ${STORE.questionNumberScore} of 5</div>
@@ -134,6 +134,21 @@ function handleStartQuiz() {
   });
 }
 
+// function handleSubmit() {
+//   $('#main').on('submit', 'form', function(event) {
+//     event.preventDefault();
+//     console.log('yowza');
+//   });
+// }
+
+function handleSubmitAnswer(){
+  $('#main').on('submit', 'form', function(event){
+    event.preventDefault();
+    console.log('clicked');
+    checkAnswer();
+  });
+}
+
 function handleNextQuestion() {
   $('#main').on('click', '#next-question', function() {
     STORE.questionNumber++;
@@ -157,19 +172,6 @@ function handleResetButton() {
 }
 
 
-function handleSubmit() {
-  $('#main').on('submit', 'form', function(event) {
-    event.preventDefault();
-  });
-}
-
-function handleSubmitAnswer(){
-  $('#main').on('click', '#submit', function(){
-    console.log('clicked');
-    checkAnswer();
-  });
-}
-
 function correctFeedback() {
   $('#main').html(`
   <div role="correct feedback" aria-live="polite">
@@ -184,7 +186,7 @@ function correctFeedback() {
 function incorrectFeedback() {
   $('#main').html(`
   <div role="incorrect feedback" aria-live="polite">
-    <h3>Incorrect! The correct answer is ${STORE.questions[STORE.questionNumber].correctAnswer}</h3>
+    <h3>Incorrect! The correct answer is ${STORE.questions[STORE.questionNumber].correctAnswer}.</h3>
     <button id="next-question">
     Next
     </button>
@@ -192,13 +194,6 @@ function incorrectFeedback() {
     `);
 }
 
-function noFeedback() {
-  $('#main').html(`
-  <div role="no feedback" aria-live="polite">
-    <h3>Please put answer</h3>
-  </div>
-    `);
-}
 
 function checkAnswer() {
   let selectedOption = $('input[type=radio]:checked').val().trim();
@@ -224,10 +219,12 @@ function checkAnswer() {
 function quizHandler() {
   renderHomePage();
   handleStartQuiz();
-  handleNextQuestion();
-  handleResetButton();
-  handleSubmit();
   handleSubmitAnswer(); 
+  handleNextQuestion();
+  handleSubmitAnswer(); 
+  // handleSubmit();
+  handleResetButton();
+ 
 }
 
 $(quizHandler);
