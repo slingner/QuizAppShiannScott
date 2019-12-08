@@ -89,8 +89,8 @@ function questionTemplate(question) {
       </fieldset>
       <button type = "submit" id = "button1"> Check Your Answer </button>
     </form>
-    <div id="Score">Score: ${STORE.score}</div>
-    <div id="QuestionNumber">Question Number: ${STORE.questionNumberScore} of 5</div>
+    <div id="Score">Score: ${STORE.score} correct out of 5</div>
+    <div id="QuestionNumber">Question Number: ${STORE.questionNumberScore} out of 5</div>
   `;
 }
 //maybe I had the html wrong.. because I switched back to button type again and it also
