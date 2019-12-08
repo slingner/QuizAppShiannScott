@@ -38,6 +38,10 @@
     padding-bottom: 22px;
   }
 
+  h3 {
+    font-family: 'Solway', serif;
+  }
+
 main {
   font-family: 'Solway', serif;
   color: rgb(255, 252, 248);
@@ -47,7 +51,7 @@ main {
   max-width: 600px;
 }
 legend {
-  font-size: 18px;
+  font-size: 22px;
   display: block;
   text-align: center;
   font-family: 'Solway', serif;
@@ -92,9 +96,12 @@ fieldset {
   border-width: 5px;
 }
 
+input[type="radio"]{
+  margin: 10px 0px 10px 0px;
+}
+
 label {
-  font-size: 15px;
-  font-family: 'Solway', serif;
+  font-size: 18px;
 }
 
 #Score {
