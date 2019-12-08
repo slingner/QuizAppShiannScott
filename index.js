@@ -77,14 +77,14 @@ function questionTemplate(question) {
     <form class = "myForm">
       <fieldset>
         <div class="questionList">
-          <input aria-label="Answer1" onclick="" class = 'input-field' type="radio" name='answer' value='${question.answers[0]}' required> 
-            <label for="answer" onclick="">${question.answers[0]}</label><br>
-          <input aria-label="Answer2 " onclick="" class = 'input-field' type="radio" name='answer' value='${question.answers[1]}' required>
-            <label for="answer" onclick="">${question.answers[1]}</label><br>
-          <input aria-label="Answer3" onclick="" class = 'input-field' type="radio" name='answer' value='${question.answers[2]}' required>
-            <label for="answer" onclick="">${question.answers[2]}</label><br>
-          <input aria-label="Answer4" onclick="" class = 'input-field' type="radio" name='answer' value='${question.answers[3]}' required>
-            <label for="answer" onclick="">${question.answers[3]}</label><br>
+          <input aria-label="Answer1" onclick="" id = 'rad1' type="radio" name='answer' value='${question.answers[0]}' required> 
+            <label for="rad1" onclick="">${question.answers[0]}</label><br>
+          <input aria-label="Answer2 " onclick="" id = 'rad2' type="radio" name='answer' value='${question.answers[1]}' required>
+            <label for="rad2" onclick="">${question.answers[1]}</label><br>
+          <input aria-label="Answer3" onclick="" id = 'rad3' type="radio" name='answer' value='${question.answers[2]}' required>
+            <label for="rad3" onclick="">${question.answers[2]}</label><br>
+          <input aria-label="Answer4" onclick="" id = 'rad4' type="radio" name='answer' value='${question.answers[3]}' required>
+            <label for="rad4" onclick="">${question.answers[3]}</label><br>
         </div>
       </fieldset>
       <button type = "submit" id = "button1"> Check Your Answer </button>
