@@ -39,6 +39,7 @@
   }
 
   h3 {
+    font-size: 15px;
     text-align: center;
     font-family: 'Solway', serif;
   }
@@ -116,6 +117,7 @@ legend {
     box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
     transform: translateY(-0.1rem);
     transition: transform 150ms;
+  padding-bottom: 15px;
 }
 
 #incorrectGif {
