@@ -47,10 +47,11 @@
 main {
   font-family: 'Solway', serif;
   color: rgb(255, 252, 248);
-  height: 75px;
+  /* height: 75px; */
   width: 75%;
   margin: 0 auto;
   max-width: 600px;
+  align-content: center;
 }
 legend {
   font-size: 22px;
