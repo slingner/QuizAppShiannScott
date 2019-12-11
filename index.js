@@ -98,8 +98,7 @@ function questionTemplate(question) {
     <div id="QuestionNumber">Question Number: ${STORE.questionNumberScore} out of 5</div>
   `;
 }
-//maybe I had the html wrong.. because I switched back to button type again and it also
-//works.
+
 
 function finalpageTemplate() {
   return `
@@ -141,12 +140,6 @@ function handleStartQuiz() {
   });
 }
 
-// function handleSubmit() {
-//   $('#main').on('submit', 'form', function(event) {
-//     event.preventDefault();
-//     console.log('yowza');
-//   });
-// }
 
 function handleSubmitAnswer(){
   $('#main').on('submit', 'form', function(event){
@@ -236,18 +229,3 @@ function quizHandler() {
 }
 
 $(quizHandler);
-
-/**
- *
- * Your app should include a render() function, that regenerates
- * the view each time the store is updated. See your course
- * material, consult your instructor, and reference the slides
- * for more details.
- *
- * NO additional HTML elements should be added to the index.html file.
- *
- * You may add attributes (classes, ids, etc) to the existing HTML elements, or link stylesheets or additional scripts if necessary
- *
- */
-
-// Initialize all functions that run the application
