@@ -22,6 +22,12 @@
     url("https://images.pexels.com/photos/616404/pexels-photo-616404.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
     background-size: cover;
     height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: auto;
   }
 
   h1 {
