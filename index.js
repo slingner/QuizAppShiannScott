@@ -55,7 +55,7 @@ const STORE = {
         'Popcorn',
       ],
       correctAnswer: 'Popcorn',
-      descriptionOfAnswer: "The first food deliberately cooked with a microwave was popcorn, and the second was an egg, which exploded in the face of one of the experimenters.",
+      descriptionOfAnswer: 'The first food deliberately cooked with a microwave was popcorn, and the second was an egg, which exploded in the face of one of the experimenters.',
     },
   ],
   questionNumber: 0,
